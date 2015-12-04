@@ -8,8 +8,10 @@ module OmniAuth
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
-      option :client_options, { token_url: "/oauth/request_token", access_url: "/oauth/request_access" }
-
+      option :client_options, {
+          token_url: "/oauth/token/",
+          access_url: "/oauth/me/"
+      }
 
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making
@@ -32,7 +34,7 @@ module OmniAuth
       end
 
       def raw_info
-        access_token.get(options[:client_options][:access_url]).parsed || {}
+        @raw_info ||= access_token.get(options[:client_options][:access_url]).parsed
       end
     end
   end

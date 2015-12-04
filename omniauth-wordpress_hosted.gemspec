@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'omniauth-wordpress_hosted/version'
 
 Gem::Specification.new do |spec|
-  spec.add_dependency 'omniauth-oauth2'
+  spec.add_dependency 'omniauth-oauth2', '1.2.0'
 
   spec.name          = "omniauth-wordpress_hosted"
   spec.version       = Omniauth::WordpressHosted::VERSION
